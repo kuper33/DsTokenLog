@@ -75,7 +75,7 @@ window.location.reload();
 }
 }
 });
-window.localStorage.setItem('token', JSON.stringify(token));
+window.localStorage.setItem('Authorization', JSON.stringify(token));
 window.location.href = 'https://discord.com/app';
 } else {
 alert('Токен не был введен!');
