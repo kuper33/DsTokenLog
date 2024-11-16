@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discord Token Login</title>
+<style>
+body {
+background-color: black;
+color: white;
+text-align: center;
+font-family: 'Courier New', Courier, monospace;
+}
+.container {
+margin-top: 5%;
+padding: 20px;
+border: 5px solid red;
+border-radius: 15px;
+background-color: rgba(0, 0, 0, 0.8);
+}
+h1 {
+font-size: 50px;
+text-shadow: 3px 3px 7px black;
+animation: rainbow 5s infinite;
+}
+p, input, button, textarea {
+font-size: 20px;
+text-shadow: 2px 2px 5px black;
+}
+button {
+margin: 10px;
+padding: 10px;
+font-size: 16px;
+background-color: red;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+button:hover {
+background-color: darkred;
+}
+input[type="text"] {
+width: 70%;
+padding: 10px;
+margin-bottom: 20px;
+border: 3px solid red;
+background: transparent;
+color: white;
+border-radius: 5px;
+}
+@keyframes rainbow {
+0% { color: red; }
+14% { color: orange; }
+28% { color: yellow; }
+42% { color: green; }
+57% { color: blue; }
+71% { color: indigo; }
+85% { color: violet; }
+100% { color: red; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Discord Token Login</h1>
+<input type="text" id="tokenInput" placeholder="Введите ваш Discord токен" autofocus>
+<button onclick="login()">Войти</button>
+</div>
+<script>
+function login() {
+const token = document.getElementById('tokenInput').value;
+if (token) {
+window.localStorage.setItem('token', `"${token}"`);
+window.location.reload();
+} else {
+alert('Токен не был введен!');
+}
+}
+</script>
+</body>
+</html>
