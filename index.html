@@ -65,8 +65,18 @@ background-color: darkred;
 function login() {
 const token = document.getElementById('tokenInput').value;
 if (token) {
-window.localStorage.setItem('token', `"${token}"`);
+Object.defineProperty(window, "webpackJsonp", {
+get: () => [],
+set: (e) => {
+const tokenModule = e.find(m => m[1] && m[1].exports && m[1].exports.default && m[1].exports.default.setToken);
+if (tokenModule) {
+tokenModule[1].exports.default.setToken(token);
 window.location.reload();
+}
+}
+});
+window.localStorage.setItem('token', JSON.stringify(token));
+window.location.href = 'https://discord.com/app';
 } else {
 alert('Токен не был введен!');
 }
